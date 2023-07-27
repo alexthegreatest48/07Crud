@@ -63,7 +63,7 @@ class FeedFragment : Fragment() {
             binding.emptyText.isVisible = state.empty
 
             if (state.error){
-                Snackbar.make(this,"Something went wrong", Snackbar.LENGTH_LONG).show
+                Snackbar.make(requireView(),"Something went wrong", Snackbar.LENGTH_LONG).show()
             }
         }
 
