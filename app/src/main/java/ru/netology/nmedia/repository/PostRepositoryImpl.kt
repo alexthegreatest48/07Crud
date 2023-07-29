@@ -7,6 +7,7 @@ import retrofit2.Response
 import ru.netology.nmedia.api.PostsApi
 import ru.netology.nmedia.dto.Post
 import java.io.IOException
+import java.lang.Exception
 import java.lang.RuntimeException
 
 class PostRepositoryImpl : PostRepository {
@@ -21,7 +22,7 @@ class PostRepositoryImpl : PostRepository {
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                TODO("Not yet implemented")
+                callback.onError(Exception(t))
             }
         })
     }
@@ -35,7 +36,7 @@ class PostRepositoryImpl : PostRepository {
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                TODO("Not yet implemented")
+                callback.onError(Exception(t))
             }
 
         })
@@ -50,7 +51,7 @@ class PostRepositoryImpl : PostRepository {
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                callback.onError(Exception(t))
             }
 
         })
@@ -65,7 +66,7 @@ class PostRepositoryImpl : PostRepository {
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                callback.onError(Exception(t))
             }
 
         })
@@ -80,7 +81,7 @@ class PostRepositoryImpl : PostRepository {
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                callback.onError(Exception(t))
             }
 
         })
