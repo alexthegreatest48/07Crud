@@ -13,7 +13,6 @@ import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.messaging.FirebaseMessaging
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
-import ru.netology.nmedia.model.FeedModel
 
 class AppActivity : AppCompatActivity(R.layout.activity_app) {
 
@@ -44,8 +43,6 @@ class AppActivity : AppCompatActivity(R.layout.activity_app) {
 
         checkGoogleApiAvailability()
     }
-
-
 
     private fun requestNotificationsPermission() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {

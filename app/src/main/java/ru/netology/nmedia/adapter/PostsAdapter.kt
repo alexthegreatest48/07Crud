@@ -6,10 +6,10 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.view.loadCircleCrop
 
 interface OnInteractionListener {
     fun onLike(post: Post) {}
@@ -31,25 +31,18 @@ class PostsAdapter(
         holder.bind(post)
     }
 }
-
+private const val BASE_URL = "http://10.0.2.2:9999/api/slow/"
 class PostViewHolder(
     private val binding: CardPostBinding,
     private val onInteractionListener: OnInteractionListener,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(post: Post) {
-
-        val url = "http://10.0.2.2:9999/avatars/${post.authorAvatar}"
-
-        Glide.with(binding.avatar)
-            .load(url)
-            .circleCrop()
-            .into(binding.avatar)
-
         binding.apply {
             author.text = post.author
             published.text = post.published
             content.text = post.content
+            avatar.loadCircleCrop("${BASE_URL}/avatars/${post.authorAvatar}")
             like.isChecked = post.likedByMe
             like.text = "${post.likes}"
 
